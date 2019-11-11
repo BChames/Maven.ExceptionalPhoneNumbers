@@ -22,12 +22,7 @@ public final class PhoneNumberFactory {
      * @return array of randomly generated PhoneNumber objects
      */ //TODO - Implement logic
     public static PhoneNumber[] createRandomPhoneNumberArray(int phoneNumberCount) {
-        //Using the createRandomPhoneNumber from Part 3, generate an array of PhoneNumber objects,
-        // whose length reflects the input argument.
-        //For example createRandomPhoneNumber(5) should return an array of 5 PhoneNumber objects.
 
-        //phoneNumberCount; -length
-        //each count should generate a random number and put it in an array
         PhoneNumber[] randomPhoneNumberArray = new PhoneNumber[phoneNumberCount];
         int count = 0;
         PhoneNumber j;
@@ -60,15 +55,8 @@ public final class PhoneNumberFactory {
      * @return a new phone number object
      */ //TODO - if input is valid, return respective PhoneNumber object, else return null
     public static PhoneNumber createPhoneNumberSafely(int areaCode, int centralOfficeCode, int phoneLineCode) {
-        /*
-        Add logging to the createPhoneNumberSafely method from Part 2, which logs the message
 
-(###)-###-#### is not a valid phone number
-Where (###)-###-#### will be replaced with the respective input parameter.
-         */
-
-        int phoneNumberInt = areaCode + centralOfficeCode + phoneLineCode;
-        String phoneNumberString = Integer.toString(phoneNumberInt);
+        String phoneNumberString = "(" + areaCode + ")-" + centralOfficeCode + "-" + phoneLineCode;
 
         try {
             return createPhoneNumber(phoneNumberString);
@@ -84,7 +72,7 @@ Where (###)-###-#### will be replaced with the respective input parameter.
      * @throws InvalidPhoneNumberFormatException - thrown if phoneNumberString does not match acceptable format
      */ // TODO - Add throws statement to method signature
     public static PhoneNumber createPhoneNumber(String phoneNumberString) throws InvalidPhoneNumberFormatException{
-        logger.info("Attempting to create a new PhoneNumber object with a value of" + phoneNumberString);
+
         return new PhoneNumber(phoneNumberString);
     }
 }
